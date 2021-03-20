@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "7b46cba7-cb53-44f9-a9a5-1e0ec10f3284",
+		"name": "New SSO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Credential",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:15001/api/vnpt-sso-authentication/v1/credentials",
+					"host": [
+						"localhost"
+					],
+					"port": "15001",
+					"path": [
+						"api",
+						"vnpt-sso-authentication",
+						"v1",
+						"credentials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:15001/api/vnpt-sso-authentication/v1/get_token?grant_type=client_credentials&client_id=086f7b6f-31f7-43d6-8360-9a06fd4ccbe6&client_secret=18558f75-6292-4df8-a81b-43565dd7c0bc&scope=all",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTYyNzA1MDUsInVzZXJfaWQiOiIifQ.UatGYYWR4WhZmXUCMebmZ7OeLjHUD3kRpAduPLHYS1Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:15001/api/vnpt-sso-authentication/v1/get_token?grant_type=client_credentials&client_id=086f7b6f-31f7-43d6-8360-9a06fd4ccbe6&client_secret=18558f75-6292-4df8-a81b-43565dd7c0bc&scope=all",
+					"host": [
+						"localhost"
+					],
+					"port": "15001",
+					"path": [
+						"api",
+						"vnpt-sso-authentication",
+						"v1",
+						"get_token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials"
+						},
+						{
+							"key": "client_id",
+							"value": "086f7b6f-31f7-43d6-8360-9a06fd4ccbe6"
+						},
+						{
+							"key": "client_secret",
+							"value": "18558f75-6292-4df8-a81b-43565dd7c0bc"
+						},
+						{
+							"key": "scope",
+							"value": "all"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kiểm tra Token hợp lệ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "MZZIYZI0ODQTMJUZOC0ZOTHLLTYTNJIWMJKXOGQ0MWVM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:15001/test",
+					"host": [
+						"localhost"
+					],
+					"port": "15001",
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Đăng ký SSO",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"hodtien\",\r\n    \"password\": \"Vnpt@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:15001/api/vnpt-sso-authentication/v1/user/register",
+					"host": [
+						"localhost"
+					],
+					"port": "15001",
+					"path": [
+						"api",
+						"vnpt-sso-authentication",
+						"v1",
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Đăng nhập SSO",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"hodtien\",\r\n    \"password\": \"Vnpt@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:15001/api/vnpt-sso-authentication/v1/user/login",
+					"host": [
+						"localhost"
+					],
+					"port": "15001",
+					"path": [
+						"api",
+						"vnpt-sso-authentication",
+						"v1",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

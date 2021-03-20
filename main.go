@@ -32,12 +32,11 @@ func main() {
 
 	e.POST("/api/vnpt-sso-authentication/v1/credentials", service.CreateCredential)
 	e.GET("/api/vnpt-sso-authentication/v1/get_token", service.Token, mdw.SSOValidateAuthenToken)
-
+	e.GET("/test", service.Test)
 
 	e.POST("/api/vnpt-sso-authentication/v1/user/register", users.Register)
 	e.POST("/api/vnpt-sso-authentication/v1/user/login", users.Login)
 	e.GET("/api/vnpt-sso-authentication/v1/user/validate_access_token", users.ValidateSSOAccessToken)
-	e.GET("/test", service.Test)
 
 	e.Logger.Fatal(e.StartServer(s))
 }
